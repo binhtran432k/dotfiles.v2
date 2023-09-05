@@ -25,11 +25,12 @@ in
         }
 
         home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.users.${username} = home-module;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = specialArgs;
+            users.${username} = home-module;
+          };
         }
       ];
   }
