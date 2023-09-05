@@ -14,6 +14,6 @@
 
   home.packages = with pkgs; [
     libnotify # notify-send
-    xob
+    xsel # clipboard support
   ];
 }

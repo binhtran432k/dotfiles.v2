@@ -32,11 +32,13 @@ in {
         { command = cfg.terminal; }
         { command = user.mail-app; }
         { command = user.browser-app; }
+        { command = "flameshot"; }
+        { command = "${pkgs.feh}/bin/feh --no-fehbg --bg-scale ${user.wallpaper}"; }
       ];
       defaultWorkspace = "workspace number 1";
       assigns = {
         "2" = [{ class = "^Brave-browser$"; }];
-        "4" = [{ class = "^thunderbird$"; }];
+        "3" = [{ class = "^thunderbird$"; }];
       };
       keybindings = {
         "${modifier}+Return" = "exec ${cfg.terminal}";

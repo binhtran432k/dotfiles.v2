@@ -21,6 +21,16 @@
       mail-app = "thunderbird";
       browser-app = "brave";
       terminal-app = "kitty";
+      colorscheme = import ./colorschemes/dracula.nix;
+      wallpaper = pkgs.fetchurl {
+        url = "https://github.com/binhtran432k/dotfiles/releases/download/resource/nix-wallpaper-minimal.png";
+        sha256 = "1f5f2fff5e696eeee56e183a79a76c127587177525f338bb9138dba9678826e5";
+      };
+      cursor = {
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Classic";
+        size = 24;
+      };
     };
     systems = {
       linux = "x86_64-linux";

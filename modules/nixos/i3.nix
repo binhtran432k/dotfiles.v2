@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   services = {
     xserver = {
@@ -10,7 +10,15 @@
 
       displayManager = {
         defaultSession = "none+i3";
-        lightdm.enable = true;
+        lightdm = {
+          enable = true;
+          greeters.gtk = {
+            enable = true;
+            cursorTheme = {
+              inherit (user.cursor) package name size;
+            };
+          };
+        };
       };
 
       windowManager.i3 = {
