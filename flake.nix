@@ -26,6 +26,14 @@
         url = "https://github.com/binhtran432k/dotfiles/releases/download/resource/nix-wallpaper-minimal.png";
         sha256 = "1f5f2fff5e696eeee56e183a79a76c127587177525f338bb9138dba9678826e5";
       };
+      theme = {
+        package = pkgs.adw-gtk3;
+        name = "adw-gtk3-dark";
+      };
+      icon = {
+        package = pkgs.papirus-icon-theme;
+        name = "Papirus-Dark";
+      };
       cursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Classic";

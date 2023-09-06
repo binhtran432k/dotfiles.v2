@@ -1,15 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   imports = [
-    ./theme
+    ./cursor.nix
     ./creative.nix
+    ./dunst.nix
+    ./gtk.nix
+    ./kitty.nix
     ./media.nix
     ./xdg.nix
-  ];
-
-  home.packages = with pkgs; [
-    zathura # pdf viewer
-    vimiv-qt # image viewer
-    flameshot # screen capture
+    ./xresource.nix
   ];
 }

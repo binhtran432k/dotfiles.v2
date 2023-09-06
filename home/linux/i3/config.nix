@@ -131,6 +131,13 @@ in {
           "Return" = "mode default";
         };
       };
+      bars = [
+        (
+          {
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs config-default.toml";
+          } // config.lib.theme.i3.bar
+        )
+      ];
     };
   };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 let
   gtkCss = ./gtk.css;
 in
@@ -13,13 +13,11 @@ in
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      inherit (user.icon) package name;
     };
 
     theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
+      inherit (user.theme) package name;
     };
   };
 

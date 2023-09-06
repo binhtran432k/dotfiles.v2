@@ -2,6 +2,8 @@
 {
   imports = [
     ./config.nix
+    ./theme.nix
+    ./i3status-rust.nix
   ];
 
   xsession.windowManager.i3.enable = true;

@@ -1,6 +1,23 @@
 rec {
+  name = "dracula";
+  kitty-theme = "Dracula";
+
   background = "#282A36";
   foreground = "#F8F8F2";
+  secondary-background = bright-black;
+  secondary-foreground = foreground;
+  emphasis = bright-white;
+  border = selection;
+  primary = purple;
+  secondary = pink;
+  teriary = orange;
+  success = green;
+  danger = red;
+  warning = yellow;
+  info = cyan;
+  light = foreground;
+  dark = background;
+
   selection = "#44475A";
   comment = "#6272A4";
   orange = "#FFB86C";
