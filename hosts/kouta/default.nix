@@ -4,8 +4,8 @@
     ./hard-disk-mount.nix
     ./hardware-configuration.nix
 
-    ../../modules/nixos/core-desktop.nix
-    ../../modules/nixos/user-group.nix
+    ../../modules/core-desktop.nix
+    ../../modules/user-group.nix
 
     ../../hardwares/dell-latitude-e6440.nix
   ];

@@ -1,6 +1,11 @@
+{ pkgs, ... }:
 rec {
   name = "dracula";
   kitty-theme = "Dracula";
+  gtk = {
+    name = "Dracula";
+    package = pkgs.dracula-theme;
+  };
 
   background = "#282A36";
   foreground = "#F8F8F2";

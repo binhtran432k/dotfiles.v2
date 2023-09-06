@@ -1,4 +1,4 @@
-{ config, user, ... }:
+{ user, ... }:
 rec {
   systemd.user.sessionVariables = {
     BROWSER = user.browser-app;

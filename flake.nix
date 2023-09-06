@@ -14,21 +14,21 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    colorscheme = import ./colorschemes/dracula.nix { inherit pkgs; };
     home-user = {
+      inherit colorscheme;
       username = "binhtran432k";
       fullname = "Binh Duc Tran";
       email = "binhtran432k@gmail.com";
       mail-app = "thunderbird";
       browser-app = "brave";
       terminal-app = "kitty";
-      colorscheme = import ./colorschemes/dracula.nix;
       wallpaper = pkgs.fetchurl {
         url = "https://github.com/binhtran432k/dotfiles/releases/download/resource/nix-wallpaper-minimal.png";
         sha256 = "1f5f2fff5e696eeee56e183a79a76c127587177525f338bb9138dba9678826e5";
       };
       theme = {
-        package = pkgs.adw-gtk3;
-        name = "adw-gtk3-dark";
+        inherit (colorscheme.gtk) package name;
       };
       icon = {
         package = pkgs.papirus-icon-theme;
@@ -52,9 +52,9 @@
     kouta-modules = {
       nixos-modules = [
         ./hosts/kouta
-        ./modules/nixos/i3.nix
+        ./modules/i3.nix
       ];
-      home-module = import ./home/linux/desktop-i3.nix;
+      home-module = import ./home/desktop-i3.nix;
     };
 
     x64-specialArgs = {

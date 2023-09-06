@@ -3,7 +3,7 @@
   imports = [
     ./zellij
 
-    ./shell.nix
+    ./shell-server.nix
     ./bat.nix
     ./core.nix
     ./git.nix
