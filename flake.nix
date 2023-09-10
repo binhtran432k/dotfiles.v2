@@ -57,7 +57,10 @@
       home-module = import ./home/desktop-i3.nix;
     };
 
+    mypkgs = import ./pkgs { inherit pkgs; };
+
     x64-specialArgs = {
+      inherit mypkgs;
       user = home-user;
     } // inputs;
   in {

@@ -51,7 +51,8 @@ in {
         inherit background separator;
         statusline = text;
         focusedWorkspace = {
-          inherit text background;
+          inherit text;
+          background = secondary-background;
           border = focused;
         };
         activeWorkspace = {

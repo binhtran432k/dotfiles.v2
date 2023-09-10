@@ -11,7 +11,12 @@ in
     programs.git = {
       enable = true;
       lfs.enable = true;
-      delta.enable = true;
+      delta = {
+        enable = true;
+        options = {
+          syntax-theme = user.colorscheme.delta;
+        };
+      };
 
       userName = userfullname;
       userEmail = useremail;

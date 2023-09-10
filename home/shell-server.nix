@@ -10,6 +10,9 @@
 
   programs.fish = {
     enable = true;
+    functions = {
+      fish_greeting = "macchina";
+    };
     interactiveShellInit =
       let
         cfg = config.programs.starship;

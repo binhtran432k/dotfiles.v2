@@ -12,10 +12,14 @@
         defaultSession = "none+i3";
         lightdm = {
           enable = true;
+          background = user.wallpaper;
           greeters.gtk = {
             enable = true;
             cursorTheme = {
               inherit (user.cursor) package name size;
+            };
+            theme = {
+              inherit (user.theme) package name;
             };
           };
         };

@@ -2,8 +2,12 @@
 let 
   cfg = config.xsession.windowManager.i3.config;
   modifier = cfg.modifier;
-  mycontrol = pkgs.writeShellScriptBin "mycontrol" (builtins.readFile ./mycontrol);
   commands = {
+    dict = "kitty --class=floatsdcv -e sdcv";
+    calc = "=";
+    notify = msg: "notify-send '${msg}' -t 1500";
+    lock = "loginctl lock-session";
+    power-menu = "rofi -show power-menu -modi power-menu:rofi-power-menu";
     volume = {
       increase = "mycontrol volume up 10";
       decrease = "mycontrol volume down 10";
@@ -18,6 +22,7 @@ let
       decrease = "mycontrol brightness get";
     };
   };
+  mycontrol = pkgs.writeShellScriptBin "mycontrol" (builtins.readFile ./mycontrol);
 in {
   home.packages = [
     mycontrol
@@ -28,18 +33,77 @@ in {
       modifier = "Mod4";
       terminal = user.terminal-app;
       menu = "rofi -show run";
-      startup = [
-        { command = cfg.terminal; }
-        { command = user.mail-app; }
-        { command = user.browser-app; }
-        { command = "flameshot"; }
-        { command = "${pkgs.feh}/bin/feh --no-fehbg --bg-scale ${user.wallpaper}"; }
-      ];
+      fonts = {
+        names = [ "Noto Sans Mono" "FontAwesome6Free" ];
+        style = "Bold Semi-Condensed";
+        size = 11.0;
+      };
       defaultWorkspace = "workspace number 1";
       assigns = {
         "2" = [{ class = "^Brave-browser$"; }];
         "3" = [{ class = "^thunderbird$"; }];
       };
+      floating = {
+        titlebar = true;
+        border = 1;
+      };
+      window = {
+        titlebar = false;
+        border = 1;
+        commands = [
+          {
+            criteria = { class = "floating"; };
+            command = "floating enable";
+          }
+          {
+            criteria = { class = "floatsdcv"; };
+            command = "floating enable, resize set 800 600, move position center";
+          }
+          {
+            criteria = { urgent = "latest"; };
+            command = "focus";
+          }
+        ];
+      };
+      gaps = {
+        inner = 14;
+        outer = -2;
+        smartGaps = true;
+        smartBorders = "on";
+      };
+      modes = {
+        resize = {
+          "Left" = "resize shrink width 10 px or 10 ppt";
+          "Down" = "resize grow height 10 px or 10 ppt";
+          "Up" = "resize shrink height 10 px or 10 ppt";
+          "Right" = "resize grow width 10 px or 10 ppt";
+          "Ctrl+bracketleft" = "mode default";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+        };
+        open = {
+          "d" = "exec --no-startup-id ${commands.dict}, mode default";
+          "b" = "exec --no-startup-id ${user.browser-app}, mode default";
+          "m" = "exec --no-startup-id ${user.mail-app}, mode default";
+          "c" = "exec --no-startup-id ${commands.calc}, mode default";
+          "Ctrl+bracketleft" = "mode default";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+        };
+      };
+      bars = [
+        (
+          {
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs config-default.toml";
+            position = "top";
+            fonts = {
+              names = [ "Noto Sans Mono" "FontAwesome6Free" ];
+              style = "Bold Semi-Condensed";
+              size = 11.0;
+            };
+          } // config.lib.theme.i3.bar
+        )
+      ];
       keybindings = {
         "${modifier}+Return" = "exec ${cfg.terminal}";
         "${modifier}+Shift+q" = "kill";
@@ -49,19 +113,25 @@ in {
         "${modifier}+Down" = "focus down";
         "${modifier}+Up" = "focus up";
         "${modifier}+Right" = "focus right";
-
         "${modifier}+Shift+Left" = "move left";
         "${modifier}+Shift+Down" = "move down";
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Right" = "move right";
 
-        "${modifier}+h" = "split h";
-        "${modifier}+v" = "split v";
+        "${modifier}+h" = "focus left";
+        "${modifier}+j" = "focus down";
+        "${modifier}+k" = "focus up";
+        "${modifier}+l" = "focus right";
+        "${modifier}+Shift+h" = "move left";
+        "${modifier}+Shift+j" = "move down";
+        "${modifier}+Shift+k" = "move up";
+        "${modifier}+Shift+l" = "move right";
+
         "${modifier}+f" = "fullscreen toggle";
 
         "${modifier}+s" = "layout stacking";
         "${modifier}+w" = "layout tabbed";
-        "${modifier}+e" = "layout toggle split";
+        "${modifier}+slash" = "layout toggle split";
 
         "${modifier}+Shift+space" = "floating toggle";
         "${modifier}+space" = "focus mode_toggle";
@@ -105,10 +175,12 @@ in {
 
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+r" = "restart";
-        "${modifier}+Shift+e" =
-          "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
+        "${modifier}+Shift+e" = "exec --no-startup-id ${commands.power-menu}";
 
-        "${modifier}+r" = "mode resize";
+        "${modifier}+r" = "exec --no-startup-id ${commands.notify "resize"}, mode resize";
+        "${modifier}+o" = "exec --no-startup-id ${commands.notify "open: (b)rowser (m)ail (c)alc (d)ict"}, mode open";
+
+        "Control+Alt+l" = "exec --no-startup-id ${commands.lock}";
 
         "Control+Up" = "exec --no-startup-id ${commands.volume.increase}";
         "Control+Down" = "exec --no-startup-id ${commands.volume.decrease}";
@@ -121,23 +193,6 @@ in {
         "XF86MonBrightnessUp" = "exec --no-startup-id ${commands.brightness.increase}";
         "XF86MonBrightnessDown" = "exec --no-startup-id ${commands.brightness.decrease}";
       };
-      modes = {
-        resize = {
-          "Left" = "resize shrink width 10 px or 10 ppt";
-          "Down" = "resize grow height 10 px or 10 ppt";
-          "Up" = "resize shrink height 10 px or 10 ppt";
-          "Right" = "resize grow width 10 px or 10 ppt";
-          "Escape" = "mode default";
-          "Return" = "mode default";
-        };
-      };
-      bars = [
-        (
-          {
-            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs config-default.toml";
-          } // config.lib.theme.i3.bar
-        )
-      ];
     };
   };
 }

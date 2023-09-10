@@ -6,6 +6,14 @@ rec {
     name = "Dracula";
     package = pkgs.dracula-theme;
   };
+  sublime = builtins.readFile (pkgs.fetchFromGitHub {
+    owner = "dracula";
+    repo = "sublime"; # Bat uses sublime syntax for its themes
+    rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+    sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+  } + "/Dracula.tmTheme");
+  bat = "Dracula";
+  delta = bat;
 
   background = "#282A36";
   foreground = "#F8F8F2";
@@ -15,7 +23,7 @@ rec {
   border = selection;
   primary = purple;
   secondary = pink;
-  teriary = orange;
+  tertiary = orange;
   success = green;
   danger = red;
   warning = yellow;

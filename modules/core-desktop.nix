@@ -2,6 +2,8 @@
 {
   imports = [
     ./core-server.nix
+    ./dict.nix
+    ./sdcv.nix
   ];
 
   # to install chrome, you need to enable unfree packages
