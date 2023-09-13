@@ -5,6 +5,7 @@
   "lazy.nvim": { "branch": "main", "commit": "2a9354c7d2368d78cbd5575a51a2af5bd8a6ad01" },
   "lualine.nvim": { "branch": "master", "commit": "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
   "mini.ai": { "branch": "main", "commit": "7ae226f331885e6f30e9a8229e113debc59308ae" },
+  "mini.bracketed": { "branch": "main", "commit": "ac93e3d6df596c750200aa8529fd352ec91bbad2" },
   "neogen": { "branch": "main", "commit": "70127baaff25611deaf1a29d801fc054ad9d2dc1" },
   "nvim-autopairs": { "branch": "master", "commit": "defad64afbf19381fe31488a7582bbac421d6e38" },
   "nvim-surround": { "branch": "main", "commit": "1c2ef599abeeb98e40706830bcd27e90e259367a" },
