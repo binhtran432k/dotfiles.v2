@@ -180,7 +180,7 @@ in {
         "${modifier}+r" = "exec --no-startup-id ${commands.notify "resize"}, mode resize";
         "${modifier}+o" = "exec --no-startup-id ${commands.notify "open: (b)rowser (m)ail (c)alc (d)ict"}, mode open";
 
-        "Control+Alt+l" = "exec --no-startup-id ${commands.lock}";
+        "Control+Mod1+l" = "exec --no-startup-id ${commands.lock}";
 
         "Control+Up" = "exec --no-startup-id ${commands.volume.increase}";
         "Control+Down" = "exec --no-startup-id ${commands.volume.decrease}";

@@ -21,6 +21,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = lib.mkDefault false;
+  nixpkgs.config.permittedInsecurePackages = [
+    "nodejs-16.20.2"
+  ];
 
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";

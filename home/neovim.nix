@@ -3,6 +3,9 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    extraPackages = with pkgs; [
+      nodejs_16
+    ];
   };
 
   home.file = {
@@ -11,6 +14,10 @@
 
   home.packages = with pkgs; [
     gnumake # Makefile
+
+    # c/c++
+    ccls
+    gcc
 
     #-- rust
     rust-analyzer
