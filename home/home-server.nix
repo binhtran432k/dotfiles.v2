@@ -8,5 +8,6 @@
     ./git.nix
     ./macchina.nix
     ./zellij.nix
+    ./zoxide.nix
   ];
 }
