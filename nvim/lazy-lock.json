@@ -1,4 +1,5 @@
 {
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "dracula.nvim": { "branch": "main", "commit": "9fe831e685a76e1a1898a694623b33247c4d036c" },
   "iswap.nvim": { "branch": "master", "commit": "623f46106731d4a981b83f11cc567985fa94f516" },
   "lazy.nvim": { "branch": "main", "commit": "2a9354c7d2368d78cbd5575a51a2af5bd8a6ad01" },
@@ -9,5 +10,6 @@
   "nvim-treesitter": { "branch": "master", "commit": "2461e5ac21c59950457fea4b3f9f184f0daa8913" },
   "nvim-treesitter-context": { "branch": "master", "commit": "b6c763db8cc486215ba96e0a67418848a710ab25" },
   "nvim-ts-autotag": { "branch": "main", "commit": "6be1192965df35f94b8ea6d323354f7dc7a557e4" },
+  "nvim-ts-context-commentstring": { "branch": "main", "commit": "9bff161dfece6ecf3459e6e46ca42e49f9ed939f" },
   "playground": { "branch": "master", "commit": "429f3e76cbb1c59fe000b690f7a5bea617b890c0" }
 }
