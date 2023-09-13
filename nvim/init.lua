@@ -1,5 +1,7 @@
-local package = require("user.package")
+local option = require("user.option")
+local pack = require("user.pack")
 local filetype = require("user.filetype")
 
-package.setup()
+option.setup()
+pack.setup()
 filetype.setup()
