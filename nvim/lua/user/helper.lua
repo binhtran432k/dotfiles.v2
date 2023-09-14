@@ -16,6 +16,16 @@ local function on_clean(callback)
   })
 end
 
+local function on_lsp_attach(on_attach)
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      local buffer = args.buf
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      on_attach(client, buffer)
+    end,
+  })
+end
+
 return {
   is_windows = is_windows,
   is_unix = is_unix,
@@ -25,4 +35,5 @@ return {
 
   do_clean = do_clean,
   on_clean = on_clean,
+  on_lsp_attach = on_lsp_attach,
 }

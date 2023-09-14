@@ -13,7 +13,7 @@ end
 local function setup_lazy(lazypath)
   vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
   require("lazy").setup({
-    spec = "user/plugins",
+    spec = { { import = "user.plugins"}, { import = "user.plugins.lsp"} },
     defaults = { lazy = true },
     install = { colorscheme = { "dracula", "habamax" } },
     checker = { enabled = true },
