@@ -12,4 +12,12 @@ with nixos-hardware.nixosModules;
 
   # Cooling Management
   services.thermald.enable = lib.mkDefault true;
+
+  # Fix suspend not working
+  powerManagement.powerDownCommands = ''
+    echo GLAN | tee /proc/acpi/wakeup
+  '';
+  powerManagement.resumeCommands = ''
+    echo GLAN | tee /proc/acpi/wakeup
+  '';
 }
