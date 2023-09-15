@@ -7,6 +7,8 @@
     graphviz
 
     pavucontrol # audio control
+
+    zoom-us
   ];
 
   programs = {
