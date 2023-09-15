@@ -12,7 +12,7 @@
         { command = "xss-lock -- betterlockscreen -l dim"; }
         {
           command =
-            "xidlehook --not-when-audio --not-when-fullscreen"
+            "xidlehook --not-when-audio"
             + " --timer 600 'loginctl lock-session' ''"
             + " --timer 600 'systemctl suspend' ''";
         }

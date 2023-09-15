@@ -29,12 +29,12 @@ with (
     loginshadow=${background}00
     locktext="Type password to unlock..."
     font="sans-serif"
-    ringcolor=${foreground}ff
+    ringcolor=${foreground}7f
     insidecolor=${background}00
     separatorcolor=${background}00
-    ringvercolor=${foreground}ff
+    ringvercolor=${foreground}7f
     insidevercolor=${background}00
-    ringwrongcolor=${foreground}ff
+    ringwrongcolor=${foreground}7f
     insidewrongcolor=${danger}ff
     timecolor=${foreground}ff
     time_format="%H:%M:%S"
