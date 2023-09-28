@@ -1,12 +1,14 @@
-{ config, user, pkgs, ... }:
-
-with user.colorscheme;
-
-let
+{ config
+, user
+, pkgs
+, ...
+}:
+with user.colorscheme; let
   rofi-calc-wrapper = pkgs.writeShellScriptBin "=" ''
     rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | xsel"
   '';
-in {
+in
+{
   home.packages = with pkgs; [
     rofi-calc-wrapper
     rofi-power-menu
@@ -17,9 +19,11 @@ in {
     plugins = with pkgs; [
       rofi-calc
     ];
-    theme = let
+    theme =
+      let
         inherit (config.lib.formats.rasi) mkLiteral;
-      in {
+      in
+      {
         "*" = {
           background-color = mkLiteral background;
           foreground = mkLiteral foreground;
@@ -40,7 +44,7 @@ in {
           padding = 15;
         };
         "#mainbox" = {
-          border =  0;
+          border = 0;
           padding = 0;
         };
         "#message" = {

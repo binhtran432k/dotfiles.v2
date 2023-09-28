@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   services.picom = {
     enable = true;
     backend = "glx";
@@ -12,5 +11,6 @@
         deviation = 5.0;
       };
     };
+    vSync = true;
   };
 }

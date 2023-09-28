@@ -1,9 +1,13 @@
-{ config, pkgs, user, ... }:
+{ config
+, pkgs
+, user
+, ...
+}:
 let
   gtkCss = ./gtk.css;
 in
 {
-  # gtk's theme settings, generate files: 
+  # gtk's theme settings, generate files:
   #   1. ~/.gtkrc-2.0
   #   2. ~/.config/gtk-3.0/settings.ini
   #   3. ~/.config/gtk-4.0/settings.ini

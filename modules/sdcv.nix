@@ -1,5 +1,7 @@
-{ pkgs, mypkgs, ... }:
-{
+{ pkgs
+, mypkgs
+, ...
+}: {
   environment.sessionVariables = {
     STARDICT_DATA_DIR = "${mypkgs.stardict-dictionaries}/share/stardict";
     SDCV_PAGER = "bat";

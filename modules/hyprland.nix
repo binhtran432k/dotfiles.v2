@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -8,7 +7,7 @@
     ];
   };
 
-  environment.pathsToLink = ["/libexec"]; # links /libexec from derivations to /run/current-system/sw
+  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
 
   services.xserver.enable = false;
 
@@ -41,5 +40,5 @@
     ncmpcpp # a mpd tui client
   ];
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 }

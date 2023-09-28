@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     ffmpeg-full
 
@@ -9,12 +8,16 @@
     pavucontrol # audio control
 
     zoom-us
+
+    libsForQt5.kcolorchooser
+
+    libsForQt5.kruler
   ];
 
   programs = {
     mpv = {
       enable = true;
-      scripts = [pkgs.mpvScripts.mpris];
+      scripts = [ pkgs.mpvScripts.mpris ];
     };
   };
 
@@ -32,6 +35,6 @@
   # mail client
   programs.thunderbird = {
     enable = true;
-    profiles = {};
+    profiles = { };
   };
 }

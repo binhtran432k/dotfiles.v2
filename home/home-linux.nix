@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{ user, ... }: {
   imports = [
     ./shell-linux.nix
     ./btop.nix

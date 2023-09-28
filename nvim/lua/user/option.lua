@@ -2,8 +2,10 @@ local function setup()
   vim.g.mapleader = " "
   vim.g.maplocalleader = " "
 
+  vim.opt.ignorecase = true
   vim.opt.colorcolumn = "+1" -- make ruler base on text width
   -- Make whitespace more visible
+  vim.opt.list = true -- show some invisible characters (tabs, ...)
   vim.opt.listchars:append { tab = "▸▸", trail = "•" }
   vim.opt.nrformats = "alpha,bin,hex" -- order of increment <C-a>/<C-x>
   vim.opt.splitbelow = true -- Put new windows below current

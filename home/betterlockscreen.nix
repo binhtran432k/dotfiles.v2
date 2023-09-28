@@ -1,10 +1,10 @@
-{ pkgs, user, ... }:
-
+{ pkgs
+, user
+, ...
+}:
 with (
   builtins.mapAttrs (name: value: builtins.substring 1 6 value) user.colorscheme
-);
-
-{
+); {
   home.packages = with pkgs; [
     betterlockscreen
   ];

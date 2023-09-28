@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   fonts.fontconfig.enable = true;
 
   systemd.user.sessionVariables = {

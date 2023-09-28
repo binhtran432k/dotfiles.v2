@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
-{
+{ config
+, pkgs
+, ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -31,6 +33,7 @@
 
     #-- lua
     lua-language-server
+    stylua
 
     #-- javascript/typescript
     nodePackages.typescript
@@ -43,6 +46,7 @@
     marksman # language server for markdown
 
     #-- misc
+    efm-langserver
     tree-sitter # use to compile tree-sitter parser
     nodePackages.prettier # common code formatter
     ripgrep # fast search tool

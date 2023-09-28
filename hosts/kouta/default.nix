@@ -1,5 +1,7 @@
-{ config, pkgs, ... } @ args:
-{
+{ config
+, pkgs
+, ...
+} @ args: {
   imports = [
     ./hard-disk-mount.nix
     ./hardware-configuration.nix
@@ -13,7 +15,7 @@
   nixpkgs.overlays = import ../../overlays args;
 
   # Enable binfmt emulation of aarch64-linux, this is required for cross compilation.
-  boot.binfmt.emulatedSystems = ["aarch64-linux" "riscv64-linux"];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
   # supported fil systems, so we can mount any removable disks with these filesystems
   boot.supportedFilesystems = [
     "ext4"

@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{ user, ... }: {
   imports = [
     ./home-server.nix
 

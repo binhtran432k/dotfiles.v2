@@ -8,7 +8,7 @@ local function get_keymaps()
     { "gl", vim.diagnostic.open_float, desc = "Show diagnostics", mode = "n" },
     { "gK", vim.lsp.buf.signature_help, desc = "Show signature help", mode = "n" },
     { "gh", vim.lsp.buf.type_definition, desc = "Go to type definition", mode = "n" },
-    { "<leader>rn", vim.lsp.buf.rename, desc = "Rename", mode = "n" },
+    { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", mode = "n" },
     { "<leader>cf", function() vim.lsp.buf.format { async = true } end, desc = "Rename", mode = { "n", "v" } },
     { "<leader>ca", vim.lsp.buf.definition, desc = "Show code action", mode = { "n", "v" } },
   }

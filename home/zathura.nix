@@ -1,8 +1,8 @@
-{ lib, user, ... }:
-
-with user.colorscheme;
-
-{
+{ lib
+, user
+, ...
+}:
+with user.colorscheme; {
   programs.zathura = {
     enable = true;
     options = {
@@ -46,7 +46,7 @@ with user.colorscheme;
       recolor-lightcolor = "${background}";
       recolor-darkcolor = "${foreground}";
 
-      adjust-open =  "width";
+      adjust-open = "width";
       recolor = true;
     };
   };

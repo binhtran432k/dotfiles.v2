@@ -1,8 +1,5 @@
 { user, ... }:
-
-with user.colorscheme;
-
-{
+with user.colorscheme; {
   services.dunst = {
     enable = true;
     settings = {

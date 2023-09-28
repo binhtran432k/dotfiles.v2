@@ -1,5 +1,9 @@
-{ lib, pkgs, stdenv, fetchurl, ... }:
-
+{ lib
+, pkgs
+, stdenv
+, fetchurl
+, ...
+}:
 stdenv.mkDerivation rec {
   name = "stardict-dictionaries";
   src = fetchurl {

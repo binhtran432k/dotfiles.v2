@@ -1,8 +1,8 @@
-{ pkgs, user, ... }:
-
-with user.colorscheme;
-
-{
+{ pkgs
+, user
+, ...
+}:
+with user.colorscheme; {
   home.packages = with pkgs; [
     vimiv-qt
   ];

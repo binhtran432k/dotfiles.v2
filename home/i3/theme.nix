@@ -1,8 +1,5 @@
 { user, ... }:
-
-with user.colorscheme;
-
-let
+with user.colorscheme; let
   urgent = danger;
   text = foreground;
   indicator = comment;
@@ -10,7 +7,8 @@ let
   focusedInactive = secondary-background;
   unfocused = background;
   separator = border;
-in {
+in
+{
   config = {
     xsession.windowManager.i3.config = {
       colors = {

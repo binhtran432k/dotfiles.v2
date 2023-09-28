@@ -1,5 +1,9 @@
-{ config, user, pkgs, ... }:
-let 
+{ config
+, user
+, pkgs
+, ...
+}:
+let
   cfg = config.xsession.windowManager.i3.config;
   modifier = cfg.modifier;
   commands = {
@@ -23,7 +27,8 @@ let
     };
   };
   mycontrol = pkgs.writeShellScriptBin "mycontrol" (builtins.readFile ./mycontrol);
-in {
+in
+{
   home.packages = [
     mycontrol
   ];
@@ -101,7 +106,8 @@ in {
               style = "Bold Semi-Condensed";
               size = 11.0;
             };
-          } // config.lib.theme.i3.bar
+          }
+          // config.lib.theme.i3.bar
         )
       ];
       keybindings = {
@@ -152,26 +158,16 @@ in {
         "${modifier}+9" = "workspace number 9";
         "${modifier}+0" = "workspace number 10";
 
-        "${modifier}+Shift+1" =
-          "move container to workspace number 1";
-        "${modifier}+Shift+2" =
-          "move container to workspace number 2";
-        "${modifier}+Shift+3" =
-          "move container to workspace number 3";
-        "${modifier}+Shift+4" =
-          "move container to workspace number 4";
-        "${modifier}+Shift+5" =
-          "move container to workspace number 5";
-        "${modifier}+Shift+6" =
-          "move container to workspace number 6";
-        "${modifier}+Shift+7" =
-          "move container to workspace number 7";
-        "${modifier}+Shift+8" =
-          "move container to workspace number 8";
-        "${modifier}+Shift+9" =
-          "move container to workspace number 9";
-        "${modifier}+Shift+0" =
-          "move container to workspace number 10";
+        "${modifier}+Shift+1" = "move container to workspace number 1";
+        "${modifier}+Shift+2" = "move container to workspace number 2";
+        "${modifier}+Shift+3" = "move container to workspace number 3";
+        "${modifier}+Shift+4" = "move container to workspace number 4";
+        "${modifier}+Shift+5" = "move container to workspace number 5";
+        "${modifier}+Shift+6" = "move container to workspace number 6";
+        "${modifier}+Shift+7" = "move container to workspace number 7";
+        "${modifier}+Shift+8" = "move container to workspace number 8";
+        "${modifier}+Shift+9" = "move container to workspace number 9";
+        "${modifier}+Shift+0" = "move container to workspace number 10";
 
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+r" = "restart";

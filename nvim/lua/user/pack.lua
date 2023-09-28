@@ -17,6 +17,7 @@ local function setup_lazy(lazypath)
     defaults = { lazy = true },
     install = { colorscheme = { "dracula", "habamax" } },
     checker = { enabled = true },
+    change_detection = { enabled = false },
     performance = {
       rtp = {
         disabled_plugins = {

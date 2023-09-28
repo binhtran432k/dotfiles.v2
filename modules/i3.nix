@@ -1,5 +1,7 @@
-{ pkgs, user, ... }:
-{
+{ pkgs
+, user
+, ...
+}: {
   services = {
     xserver = {
       enable = true;
@@ -28,7 +30,7 @@
       windowManager.i3 = {
         enable = true;
       };
-      
+
       # Configure keymap in X11
       layout = "us";
       xkbVariant = "";

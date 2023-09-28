@@ -1,8 +1,7 @@
 { config, ... }:
-let 
+let
 in {
   xsession.windowManager.i3 = {
-    config = {
-    };
+    config = { };
   };
 }

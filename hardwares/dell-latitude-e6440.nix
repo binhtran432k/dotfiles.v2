@@ -1,6 +1,8 @@
-{ lib, nixos-hardware, ... }:
-with nixos-hardware.nixosModules;
-{
+{ lib
+, nixos-hardware
+, ...
+}:
+with nixos-hardware.nixosModules; {
   imports = [
     common-pc-laptop
     common-pc-laptop-ssd

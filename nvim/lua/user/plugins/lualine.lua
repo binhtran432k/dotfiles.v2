@@ -1,5 +1,5 @@
---- @param trunc_width number trunctates component when screen width is less then trunc_width
---- @param trunc_len number truncates component to trunc_len number of chars
+--- @param trunc_width number? trunctates component when screen width is less then trunc_width
+--- @param trunc_len number? truncates component to trunc_len number of chars
 --- @param hide_width number? hides component when window width is smaller then hide_width
 --- @param no_ellipsis boolean? whether to disable adding '...' at end after truncation
 --- return function that can format the component accordingly
@@ -27,17 +27,18 @@ local function diff_source()
 end
 
 local function get_mode()
-  return { 'mode', fmt = trunc(80, 4, nil, true) }
+  return { 'mode', fmt = trunc(80, 4, 60, true) }
 end
 
 local function get_filename()
-  return { 'filename', fmt = trunc(90, 30, 50) }
+  return { 'filename' }
 end
 
 local function get_diagnostics()
   return {
     "diagnostics",
     symbols = { error = "E", warn = "W", info = "I", hint = "H" },
+    fmt = trunc(nil, nil, 60)
   }
 end
 
@@ -46,7 +47,11 @@ local function get_branch()
 end
 
 local function get_diff()
-  return {'diff', source = diff_source}
+  return { 'diff', source = diff_source, fmt = trunc(nil, nil, 60) }
+end
+
+local function get_encoding()
+  return { 'encoding', fmt = trunc(nil, nil, 80) }
 end
 
 local function get_fileformat()
@@ -54,6 +59,7 @@ local function get_fileformat()
     'fileformat',
     icons_enabled = true,
     symbols = { unix = 'LF', dos = 'CRLF', mac = 'CR' },
+    fmt = trunc(nil, nil, 80),
   }
 end
 
@@ -88,7 +94,7 @@ return {
       lualine_a = { get_mode() },
       lualine_b = { get_branch(), get_diff(), get_diagnostics() },
       lualine_c = { get_filename() },
-      lualine_x = { 'encoding', get_fileformat(), 'filetype' },
+      lualine_x = { get_encoding(), get_fileformat(), 'filetype' },
       lualine_y = { "progress" },
       lualine_z = { "location" }
     },

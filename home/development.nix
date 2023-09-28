@@ -1,16 +1,25 @@
-{ pkgs, ... }:
-{
+{ pkgs
+, mypkgs
+, ...
+}: {
   home.packages = with pkgs; [
     gnumake # Makefile
     jdk17 # run *.jar programs
     python3 # for fast script
-    bun # for some global package
+    nodejs_18
+    bun
 
     # database related
     # dbeaver # database viewer
     # mycli # mysql
     # pgcli # postgresql
   ];
+
+  home.file = {
+    ".npmrc".text = ''
+      prefix=~/.npm-packages
+    '';
+  };
 
   programs = {
     direnv = {

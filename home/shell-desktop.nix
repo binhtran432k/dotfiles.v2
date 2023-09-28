@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   home.sessionVariables =
     let
       loadersCache = pkgs.gnome._gdkPixbufCacheBuilder_DO_NOT_USE {

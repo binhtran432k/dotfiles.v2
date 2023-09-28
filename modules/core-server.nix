@@ -1,5 +1,7 @@
-{ lib, pkgs, ... }:
-{
+{ lib
+, pkgs
+, ...
+}: {
   # for nix server, we do not need to keep too much generations
   boot.loader.systemd-boot.configurationLimit = lib.mkDefault 10;
   # boot.loader.grub.configurationLimit = 10;
@@ -16,7 +18,7 @@
     auto-optimise-store = true;
     builders-use-substitutes = true;
     # enable flakes globally
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
   };
 
   # Allow unfree packages
@@ -29,24 +31,26 @@
   time.timeZone = "Asia/Ho_Chi_Minh";
 
   # Select internationalisation properties.
-  i18n = let
-    us = "en_US.UTF-8";
-    vi = "vi_VN.UTF-8";
-  in {
-    defaultLocale = us;
-    # supportedLocales = ["all"];
-    # extraLocaleSettings = {
-    #   LC_ADDRESS = vi;
-    #   LC_IDENTIFICATION = vi;
-    #   LC_MEASUREMENT = vi;
-    #   LC_MONETARY = vi;
-    #   LC_NAME = vi;
-    #   LC_NUMERIC = vi;
-    #   LC_PAPER = vi;
-    #   LC_TELEPHONE = vi;
-    #   LC_TIME = vi;
-    # };
-  };
+  i18n =
+    let
+      us = "en_US.UTF-8";
+      vi = "vi_VN.UTF-8";
+    in
+    {
+      defaultLocale = us;
+      # supportedLocales = ["all"];
+      # extraLocaleSettings = {
+      #   LC_ADDRESS = vi;
+      #   LC_IDENTIFICATION = vi;
+      #   LC_MEASUREMENT = vi;
+      #   LC_MONETARY = vi;
+      #   LC_NAME = vi;
+      #   LC_NUMERIC = vi;
+      #   LC_PAPER = vi;
+      #   LC_TELEPHONE = vi;
+      #   LC_TIME = vi;
+      # };
+    };
 
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -80,19 +84,22 @@
     aria2
     git # used by nix flakes
     git-lfs # used by huggingface models
+    nixpkgs-fmt
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
-    (let
+    (
+      let
         base = pkgs.appimageTools.defaultFhsEnvArgs;
       in
-        pkgs.buildFHSUserEnv (base
-          // {
-            name = "fhs";
-            targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [pkgs.pkg-config];
-            profile = "export FHS=1";
-            runScript = "bash";
-            extraOutputsToInstall = ["dev"];
-          }))
+      pkgs.buildFHSUserEnv (base
+        // {
+        name = "fhs";
+        targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+        profile = "export FHS=1";
+        runScript = "bash";
+        extraOutputsToInstall = [ "dev" ];
+      })
+    )
   ];
 
   # replace default editor with neovim
@@ -110,8 +117,16 @@
   services.actkbd = {
     enable = true;
     bindings = [
-      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
-      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+      {
+        keys = [ 224 ];
+        events = [ "key" ];
+        command = "/run/current-system/sw/bin/light -U 10";
+      }
+      {
+        keys = [ 225 ];
+        events = [ "key" ];
+        command = "/run/current-system/sw/bin/light -A 10";
+      }
     ];
   };
 }

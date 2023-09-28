@@ -1,16 +1,17 @@
-{ user, ... }: 
-let 
+{ user, ... }:
+let
   username = user.username;
-in {
-  nix.settings.trusted-users = [username];
+in
+{
+  nix.settings.trusted-users = [ username ];
 
   users.groups = {
-    "${username}" = {};
-    docker = {};
-    wireshark = {};
-    video = {};
-    audio = {};
-    disk = {};
+    "${username}" = { };
+    docker = { };
+    wireshark = { };
+    video = { };
+    audio = { };
+    disk = { };
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${username}" = {

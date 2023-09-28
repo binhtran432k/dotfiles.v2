@@ -1,8 +1,5 @@
 { user, ... }:
-
-with user.colorscheme;
-
-{
+with user.colorscheme; {
   programs.i3status-rust = {
     enable = true;
     bars = {

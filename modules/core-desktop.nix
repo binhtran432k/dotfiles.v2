@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
-{
+{ config
+, lib
+, pkgs
+, ...
+}: {
   imports = [
     ./core-server.nix
     ./dict.nix
@@ -24,18 +27,19 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # python, some times I may need to use python with root permission.
-    (python3.withPackages (ps:
-      with ps; [
-        ipython
-        pandas
-        requests
-        pyquery
-        pyyaml
-      ]
+    (python3.withPackages (
+      ps:
+        with ps; [
+          ipython
+          pandas
+          requests
+          pyquery
+          pyyaml
+        ]
     ))
-    psmisc  # killall/pstree/prtstat/fuser/...
+    psmisc # killall/pstree/prtstat/fuser/...
     # colmena  # nixos's remote deployment tool
-    pulseaudio  # provides `pactl`, which is required by some apps(e.g. sonic-pi)
+    pulseaudio # provides `pactl`, which is required by some apps(e.g. sonic-pi)
   ];
 
   programs = {
@@ -107,7 +111,7 @@
   # security with gnome-kering
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
-  
+
   services = {
     # Enable CUPS to print documents.
     printing.enable = true;
@@ -115,7 +119,7 @@
     # https://flatpak.org/setup/NixOS
     # flatpak.enable = true;
 
-    dbus.packages = [pkgs.gcr];
+    dbus.packages = [ pkgs.gcr ];
     geoclue2.enable = true;
 
     udev.packages = with pkgs; [
@@ -125,7 +129,6 @@
       # android-udev-rules
     ];
   };
-
 
   xdg.portal = {
     enable = true;
@@ -176,10 +179,10 @@
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
     # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["Maple Mono NF" "Noto Color Emoji"];
-      emoji = ["Noto Color Emoji"];
+      serif = [ "Noto Serif" "Noto Color Emoji" ];
+      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+      monospace = [ "Maple Mono NF" "Noto Color Emoji" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
 
