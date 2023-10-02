@@ -1,15 +1,16 @@
 return {
   {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    lazy = false,
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        yamlls = {
+        typst_lsp = {
           settings = {
-            yaml = {
-              schemaStore = {
-                enable = true,
-              },
-            },
+            exportPdf = "never",
           },
         },
       },
