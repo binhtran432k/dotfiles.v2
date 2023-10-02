@@ -6,6 +6,9 @@
 , pkgs
 , ...
 }: {
+  home.shellAliases = {
+    o = "xdg-open";
+  };
   home.packages = with pkgs; [
     xdg-utils # provides cli tools such as `xdg-mime` `xdg-open`
     xdg-user-dirs
@@ -20,8 +23,8 @@
       defaultApplications =
         let
           browser = [ "brave.desktop" ];
-          pdfviewer = [ "zathura.desktop" ];
-          imageviewer = [ "vimiv-qt.desktop" ];
+          pdfviewer = [ "org.pwmt.zathura.desktop" ];
+          imageviewer = [ "vimiv.desktop" ];
           mediaplayer = [ "mpv.desktop" ];
         in
         {
