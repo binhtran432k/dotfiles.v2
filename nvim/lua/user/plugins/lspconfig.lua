@@ -1,3 +1,19 @@
+local format_disableds = {
+  html = true,
+  cssls = true,
+  lua_ls = true,
+}
+
+local function format()
+  vim.lsp.buf.format({
+    async = true,
+    timeout_ms = 3000,
+    filter = function(client)
+      return not vim.tbl_contains(vim.tbl_keys(format_disableds), client.name)
+    end,
+  })
+end
+
 local function get_keymaps()
   return {
     { "gD", vim.lsp.buf.declaration, desc = "Go to declaration", mode = "n" },
@@ -9,8 +25,18 @@ local function get_keymaps()
     { "gK", vim.lsp.buf.signature_help, desc = "Show signature help", mode = "n" },
     { "gh", vim.lsp.buf.type_definition, desc = "Go to type definition", mode = "n" },
     { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", mode = "n" },
-    { "<leader>cf", function() vim.lsp.buf.format { async = true } end, desc = "Rename", mode = { "n", "v" } },
-    { "<leader>ca", vim.lsp.buf.definition, desc = "Show code action", mode = { "n", "v" } },
+    {
+      "<leader>cf",
+      format,
+      desc = "Format",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ca",
+      vim.lsp.buf.definition,
+      desc = "Show code action",
+      mode = { "n", "v" },
+    },
   }
 end
 

@@ -12,10 +12,8 @@ return {
       },
       setup = {
         efm = function(_, server_opts)
-          local my_languages = {
-            nix = false,
-          }
-          local languages = vim.tbl_extend("force", require("efmls-configs.defaults").languages(), my_languages)
+          local languages = require("efmls-configs.defaults").languages()
+          languages.nix = nil;
           local efmls_config = {
             filetypes = vim.tbl_keys(languages),
             settings = {

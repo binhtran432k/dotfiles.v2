@@ -23,6 +23,9 @@ local function setup()
   -- clipboard
   vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank clipboard" })
   vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste clipboard" })
+
+  -- alternative file switcher
+  vim.keymap.set({ "n" }, "<leader><space>", '<cmd>e#<cr>', { desc = "Switch Alternative" })
 end
 
 return {

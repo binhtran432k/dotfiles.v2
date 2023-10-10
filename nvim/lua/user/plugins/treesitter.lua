@@ -84,6 +84,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = "nvim-treesitter/nvim-treesitter",
+    enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
