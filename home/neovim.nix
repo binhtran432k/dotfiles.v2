@@ -36,7 +36,6 @@
     stylua
 
     #-- javascript/typescript
-    nodePackages.typescript
     # HTML/CSS/JSON/ESLINT language server extracted from vscode
     nodePackages.vscode-langservers-extracted
 

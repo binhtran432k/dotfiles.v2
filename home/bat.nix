@@ -2,6 +2,9 @@
 , user
 , ...
 }: {
+  home.sessionVariables = {
+    PAGER = "bat";
+  };
   programs.bat = {
     enable = true;
     config = {

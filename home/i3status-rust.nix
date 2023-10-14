@@ -36,6 +36,10 @@ with user.colorscheme; {
             interval = 1;
           }
           {
+            block = "battery";
+            format = " $icon $percentage ";
+          }
+          {
             block = "sound";
           }
           {

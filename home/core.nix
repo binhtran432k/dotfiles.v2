@@ -9,7 +9,6 @@
     #-- text processin
     gnugrep # grep/egrep/fgrep
     gnused # sed
-    ripgrep # recursively search directories for a regex pattern
     fd # search files
     xdragon # drag and drop from cli
     viu # image viewer from cli

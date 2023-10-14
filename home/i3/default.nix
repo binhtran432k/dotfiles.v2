@@ -21,6 +21,7 @@
         { command = "flameshot"; }
         { command = "fcitx5 -dr"; }
         { command = "picom -b"; }
+        { command = "safeeyes"; }
       ];
     };
   };

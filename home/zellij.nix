@@ -4,20 +4,9 @@ with user.colorscheme; {
     enable = true;
   };
 
-  home.file.".config/zellij/layouts/custom.kdl".text = ''
-    layout {
-      pane size=1 borderless=true {
-        plugin location="zellij:compact-bar"
-      }
-      pane split_direction="vertical" {
-        pane
-      }
-    }
-  '';
-
   home.file.".config/zellij/config.kdl".text = ''
     simplified_ui true
-    default_layout "custom"
+    default_layout "compact"
     theme "custom"
     themes {
       custom {
@@ -38,22 +27,15 @@ with user.colorscheme; {
       shared {
         unbind "Ctrl o"
         unbind "Ctrl g"
-        bind "Alt 1" { GoToTab 1; }
-        bind "Alt 2" { GoToTab 2; }
-        bind "Alt 3" { GoToTab 3; }
       }
       shared_except "locked" {
-        bind "Alt N" { NewTab; SwitchToMode "normal"; }
         bind "Alt 9" { SwitchToMode "locked"; }
-      }
-      shared_except "session" "locked" {
-        bind "Alt 0" { SwitchToMode "session"; }
       }
       locked {
         bind "Alt 9" { SwitchToMode "normal"; }
       }
-      session {
-        bind "Alt 0" { SwitchToMode "normal"; }
+      pane {
+        bind "D" { Detach; }
       }
     }
   '';

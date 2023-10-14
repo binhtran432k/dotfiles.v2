@@ -15,7 +15,7 @@
   programs.fish = {
     enable = true;
     functions = {
-      fish_greeting = "macchina";
+      fish_greeting = "";
     };
     shellInit = ''
       # custom export

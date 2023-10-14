@@ -6,6 +6,8 @@
   imports = [
     ./core-server.nix
     ./dict.nix
+    ./cron.nix
+    ./redshift.nix
     ./sdcv.nix
   ];
 
@@ -156,6 +158,10 @@
       material-design-icons
       font-awesome
 
+      # Microsoft fonts
+      corefonts
+      vistafonts
+
       # desktop fonts
       noto-fonts
       noto-fonts-cjk
@@ -189,5 +195,22 @@
   environment.variables = {
     # fix https://github.com/NixOS/nixpkgs/issues/238025
     TZ = "${config.time.timeZone}";
+  };
+
+  # Plymouth
+  boot = {
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      # "i915.fastboot=1"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+    plymouth.enable = true;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
   };
 }

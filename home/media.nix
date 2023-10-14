@@ -12,6 +12,8 @@
     libsForQt5.kcolorchooser
 
     libsForQt5.kruler
+
+    playerctl
   ];
 
   programs = {
@@ -24,6 +26,10 @@
   services = {
     # mpris media player
     playerctld.enable = true;
+    mpd = {
+      enable = true;
+    };
+    mpdris2.enable = true;
   };
 
   # browser
