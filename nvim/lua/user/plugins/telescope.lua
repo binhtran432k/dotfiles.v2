@@ -2,7 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
   version = false, -- telescope did only one release, so use HEAD for now
-  dependencies = { "nvim-telescope/telescope-symbols.nvim" },
+  dependencies = { "nvim-telescope/telescope-symbols.nvim", "benfowler/telescope-luasnip.nvim" },
   keys = {
     { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
     { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
@@ -49,4 +49,9 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    local telescope = require("telescope")
+    telescope.setup(opts)
+    telescope.load_extension("luasnip")
+  end,
 }

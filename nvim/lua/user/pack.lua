@@ -13,10 +13,10 @@ end
 local function setup_lazy(lazypath)
   vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
   require("lazy").setup({
-    spec = { { import = "user.plugins"}, { import = "user.plugins.lsp"} },
+    spec = { { import = "user.plugins" }, { import = "user.plugins.lsp" } },
     defaults = { lazy = true },
     install = { colorscheme = { "dracula", "habamax" } },
-    checker = { enabled = true },
+    checker = { enabled = true, frequency = 43200 },
     change_detection = { enabled = false },
     performance = {
       rtp = {
@@ -41,9 +41,9 @@ end
 local function setup()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not vim.loop.fs_stat(lazypath) then
-    vim.api.nvim_create_user_command("InstallLazy",
-      function() install_lazy(lazypath) end,
-      {})
+    vim.api.nvim_create_user_command("InstallLazy", function()
+      install_lazy(lazypath)
+    end, {})
   else
     setup_lazy(lazypath)
   end

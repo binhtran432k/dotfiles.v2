@@ -9,6 +9,9 @@ return {
     indent = {
       char = "│",
     },
+    scope = {
+      enabled = false,
+    },
     exclude = {
       filetypes = indent_exclude_fts,
     },

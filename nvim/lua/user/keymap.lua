@@ -20,12 +20,14 @@ local function setup()
   vim.keymap.set("i", ".", ".<c-g>u")
   vim.keymap.set("i", ";", ";<c-g>u")
 
-  -- clipboard
   vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank clipboard" })
   vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste clipboard" })
 
-  -- alternative file switcher
-  vim.keymap.set({ "n" }, "<leader><space>", '<cmd>e#<cr>', { desc = "Switch Alternative" })
+  vim.keymap.set({ "n" }, "<leader><space>", "<cmd>e#<cr>", { desc = "Switch Alternative" })
+
+  vim.keymap.set({ "n" }, "<leader>q", "<cmd>close<cr>", { desc = "Quick Switch" })
+
+  vim.keymap.set({ "n" }, "<leader>w", "<cmd>normal <c-w><c-w><cr>", { desc = "Quick Close" })
 end
 
 return {
