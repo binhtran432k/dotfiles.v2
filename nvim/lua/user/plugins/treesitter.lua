@@ -41,6 +41,7 @@ local function get_languages()
     toml = true,
     tsx = true,
     typescript = true,
+    ungrammar = true,
     vue = true,
     vim = true,
     vimdoc = true,

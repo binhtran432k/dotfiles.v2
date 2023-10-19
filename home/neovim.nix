@@ -23,13 +23,13 @@
 
     #-- rust
     rust-analyzer
-    cargo
+    rustfmt
 
     #-- zig
     zls
 
     #-- nix
-    nixd
+    nil
 
     #-- lua
     lua-language-server

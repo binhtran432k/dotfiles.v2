@@ -8,6 +8,8 @@
     python3 # for fast script
     nodejs_18
     bun
+    cargo
+    exercism
 
     # database related
     # dbeaver # database viewer

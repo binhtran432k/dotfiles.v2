@@ -149,7 +149,7 @@ return {
           Structure = { fg = colors.purple },
           Underlined = { fg = colors.orange, underline = true },
 
-          DiagnosticUnnecessary = { undercurl = true, sp = colors.comment },
+          DiagnosticUnnecessary = { undercurl = true, fg = colors.comment },
         }
         local transparent = {
           -- "Normal",

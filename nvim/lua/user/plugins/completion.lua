@@ -105,7 +105,7 @@ local function get_normal_option(cmp, luasnip)
     },
     performance = {
       debounce = 300,
-      throttle = 100,
+      throttle = 60,
       fetching_timeout = 200,
     },
     preselect = cmp.PreselectMode.None,

@@ -33,6 +33,7 @@ local function setup()
   -- }}}
   vim.opt.number = true -- show line number
   vim.opt.signcolumn = "yes" -- show status in column
+  vim.opt.termguicolors = true -- show status in column
 end
 
 return {

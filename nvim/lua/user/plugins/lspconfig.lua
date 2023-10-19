@@ -8,7 +8,7 @@ local function get_keymaps()
     { "gK", vim.lsp.buf.signature_help, desc = "Show signature help", mode = "n" },
     { "gh", vim.lsp.buf.type_definition, desc = "Go to type definition", mode = "n" },
     { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", mode = "n" },
-    { "<leader>ca", vim.lsp.buf.definition, desc = "Show code action", mode = { "n", "v" } },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "Show code action", mode = { "n", "v" } },
   }
 end
 
@@ -18,6 +18,8 @@ local function lspconfig_config(_, opts)
   local servers = opts.servers
   local capabilities = type(opts.get_completion) == "function" and opts.get_completion() or {}
   capabilities = vim.tbl_deep_extend("force", opts.capabilities, capabilities)
+
+  vim.diagnostic.config(opts.diagnostics)
 
   for server, server_opts in pairs(servers) do
     server_opts = vim.tbl_deep_extend("force", {
@@ -48,7 +50,6 @@ return {
       diagnostics = {
         underline = true,
         update_in_insert = false,
-        virtual_text = { spacing = 4, prefix = "●" },
         severity_sort = true,
         -- float = { border = "rounded" },
       },
