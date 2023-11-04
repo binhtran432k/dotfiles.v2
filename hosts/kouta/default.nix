@@ -1,7 +1,4 @@
-{ config
-, pkgs
-, ...
-} @ args: {
+{ ... } @ args: {
   imports = [
     ./hard-disk-mount.nix
     ./hardware-configuration.nix
@@ -34,6 +31,15 @@
       canTouchEfiVariables = true;
     };
     systemd-boot.enable = true;
+  };
+
+  programs.git = {
+    enable = true;
+    config = {
+      safe = {
+        directory = "*";
+      };
+    };
   };
 
   networking = {

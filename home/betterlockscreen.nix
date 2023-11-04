@@ -9,9 +9,9 @@ with (
     betterlockscreen
   ];
 
-  home.file.".config/betterlockscreenrc".text = ''
-    # ~/.config/betterlockscreenrc
+  home.file.".lockscreen-background".source = user.lockscreen-wallpaper;
 
+  home.file.".config/betterlockscreen/betterlockscreenrc".text = ''
     # default options
     display_on=0
     span_image=false

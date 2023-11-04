@@ -4,7 +4,8 @@
 
     ./bat.nix
     ./lf.nix
-    ./safeeyes.nix
+    ./yazi.nix
+    ./lazygit.nix
     ./ripgrep.nix
     ./core.nix
     ./git.nix

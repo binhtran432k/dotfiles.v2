@@ -1,12 +1,13 @@
 { pkgs
-, mypkgs
 , ...
 }: {
   home.packages = with pkgs; [
+    vscode
     gnumake # Makefile
     jdk17 # run *.jar programs
-    python3 # for fast script
     nodejs_18
+    nodePackages.pnpm
+    typst
     bun
     cargo
     exercism

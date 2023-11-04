@@ -1,7 +1,4 @@
-{ config
-, pkgs
-, ...
-}: {
+{ pkgs, ... }: {
   imports = [
     ./config.nix
     ./theme.nix
@@ -14,7 +11,7 @@
         { command = "xss-lock -- betterlockscreen -l dim"; }
         {
           command =
-            "xidlehook --not-when-audio"
+            "xidlehook --not-when-audio --not-when-fullscreen"
             + " --timer 600 'loginctl lock-session' ''"
             + " --timer 600 'systemctl suspend' ''";
         }

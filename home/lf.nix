@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.lf = {
-    enable = true;
+    enable = false;
     commands = {
       dragon = "%dragon $fx";
       z = ''

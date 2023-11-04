@@ -7,8 +7,8 @@ let
   useremail = user.email;
 in
 {
-  home.packages = with pkgs; [
-    git-credential-oauth
+  home.packages = [
+    pkgs.git-credential-oauth
   ];
 
   programs.git = {

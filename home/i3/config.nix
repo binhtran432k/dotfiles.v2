@@ -7,7 +7,7 @@ let
   cfg = config.xsession.windowManager.i3.config;
   modifier = cfg.modifier;
   commands = {
-    dict = "kitty --class=floatsdcv -e sdcv";
+    dict = "wezterm start --class floatsdcv sdcv";
     calc = "=";
     notify = msg: "notify-send '${msg}' -t 1500";
     lock = "loginctl lock-session";

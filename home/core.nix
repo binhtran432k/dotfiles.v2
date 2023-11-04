@@ -15,7 +15,6 @@
     sad # cli search and replace
 
     #-- misc
-    carapace # multi-command argument completer
     which
     tree
   ];

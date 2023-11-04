@@ -1,9 +1,13 @@
 { config
 , pkgs
+, pkgs-staging
 , ...
 }: {
   programs.neovim = {
     enable = true;
+    package = pkgs.neovim-nightly.override {
+      libvterm-neovim = pkgs-staging.libvterm-neovim;
+    };
     defaultEditor = true;
     extraPackages = with pkgs; [
       nodejs_16
@@ -18,15 +22,20 @@
     gnumake # Makefile
 
     # c/c++
-    ccls
+    clang-tools
     gcc
+
+    # python
+    ruff-lsp
+    isort
+    black
 
     #-- rust
     rust-analyzer
     rustfmt
 
     #-- zig
-    zls
+    # zls
 
     #-- nix
     nil
@@ -35,19 +44,23 @@
     lua-language-server
     stylua
 
+    #-- typst
+    typst-lsp
+    typstfmt
+
     #-- javascript/typescript
     # HTML/CSS/JSON/ESLINT language server extracted from vscode
     nodePackages.vscode-langservers-extracted
+    nodePackages.typescript-language-server
 
     #-- other
     taplo # TOML language server / formatter / validator
     nodePackages.yaml-language-server
     marksman # language server for markdown
+    nodePackages.markdownlint-cli
 
     #-- misc
-    efm-langserver
     tree-sitter # use to compile tree-sitter parser
     nodePackages.prettier # common code formatter
-    ripgrep # fast search tool
   ];
 }

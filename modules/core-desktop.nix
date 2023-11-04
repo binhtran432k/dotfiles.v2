@@ -21,6 +21,7 @@
   environment.shells = with pkgs; [
     bash
     fish
+    nushell
   ];
   # set user's default shell system-wide
   users.defaultUserShell = pkgs.fish;
@@ -29,9 +30,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # python, some times I may need to use python with root permission.
-    (python3.withPackages (
+    (python310.withPackages (
       ps:
         with ps; [
+          tkinter
           ipython
           pandas
           requests
@@ -149,8 +151,6 @@
 
   # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
   fonts = {
-    # use fonts specified by user rather than default ones
-    enableDefaultPackages = false;
     fontDir.enable = true;
 
     packages = with pkgs; [
@@ -169,9 +169,10 @@
       noto-fonts-extra
 
       # code fonts
-      maple-mono-NF
+      cascadia-code
 
       # nerdfonts
+      nerdfonts
       # (nerdfonts.override {
       #   fonts = [
       #     "FiraCode"
@@ -187,7 +188,7 @@
     fontconfig.defaultFonts = {
       serif = [ "Noto Serif" "Noto Color Emoji" ];
       sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
-      monospace = [ "Maple Mono NF" "Noto Color Emoji" ];
+      monospace = [ "Cascadia Code" "Noto Color Emoji" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };

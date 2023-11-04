@@ -8,6 +8,7 @@
 }: {
   home.shellAliases = {
     o = "xdg-open";
+    lg = "lazygit";
   };
   home.packages = with pkgs; [
     xdg-utils # provides cli tools such as `xdg-mime` `xdg-open`

@@ -12,8 +12,9 @@
     ./fcitx5.nix
     ./flameshot.nix
     ./gtk.nix
-    ./kitty.nix
+    ./safeeyes.nix
     ./neovim.nix
+    ./wezterm.nix
     ./vimiv.nix
     ./xdg.nix
     ./zathura.nix

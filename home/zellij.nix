@@ -27,6 +27,8 @@ with user.colorscheme; {
       shared {
         unbind "Ctrl o"
         unbind "Ctrl g"
+        unbind "Ctrl h"
+        unbind "Ctrl q"
       }
       shared_except "locked" {
         bind "Alt 9" { SwitchToMode "locked"; }
@@ -35,7 +37,12 @@ with user.colorscheme; {
         bind "Alt 9" { SwitchToMode "normal"; }
       }
       pane {
-        bind "D" { Detach; }
+        bind "q" { Detach; }
+        bind "Q" { Quit; }
+        bind "H" { MovePane "Left"; }
+        bind "J" { MovePane "Down"; }
+        bind "K" { MovePane "Up"; }
+        bind "L" { MovePane "Right"; }
       }
     }
   '';
