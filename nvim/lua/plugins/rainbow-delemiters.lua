@@ -1,9 +1,11 @@
+--- Get rainbow delimiters strategy base on errors
+---@return table?
 local function get_strategy()
   local errors = 200
   for _, tree in ipairs(vim.treesitter.get_parser():trees()) do
-    if tree:root():has_error() and errors >= 0 then
+    if tree:root():has_error() then
       errors = errors - 1
-    else
+    elseif errors <= 0 then
       return nil
     end
   end

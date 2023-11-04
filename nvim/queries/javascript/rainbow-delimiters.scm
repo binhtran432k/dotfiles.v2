@@ -1,4 +1,4 @@
-; extend
+; extends
 
 (jsx_element
   open_tag: (jsx_opening_element

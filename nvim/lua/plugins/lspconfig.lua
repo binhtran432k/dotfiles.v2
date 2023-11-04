@@ -1,13 +1,15 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    init = function()
-      vim.g.autoformat = false
-    end,
     ---@type PluginLspOpts
     opts = {
+      diagnostics = {
+        float = { border = "rounded" },
+      },
       servers = {
-        emmet_language_server = {},
+        emmet_language_server = { mason = true },
+        html = {},
+        cssls = {},
       },
     },
   },
