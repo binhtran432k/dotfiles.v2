@@ -3,10 +3,8 @@
 
   outputs =
     inputs @ { nixpkgs
-    , nixpkgs-staging
     , home-manager
     , nixos-hardware
-    , neovim-nightly-overlay
     , ...
     }:
     let
@@ -63,12 +61,8 @@
 
       x64-specialArgs =
         {
-          inherit mypkgs neovim-nightly-overlay;
+          inherit mypkgs;
           user = home-user;
-          pkgs-staging = import nixpkgs-staging {
-            system = systems.linux;
-            config.allowUnfree = true;
-          };
         }
         // inputs;
     in
@@ -105,7 +99,6 @@
 
     # Official NixOS package source, using nixos's stable branch by default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-staging.url = "github:nixos/nixpkgs/staging";
 
     # for macos
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
@@ -125,12 +118,6 @@
     hyprland.url = "github:hyprwm/Hyprland/v0.28.0";
     # community wayland nixpkgs
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.neovim-flake.url = "github:neovim/neovim?dir=contrib&rev=ac353e87aecf02315d82a3ad22725d2bc8140f0c";
-    };
   };
 
   # the nixConfig here only affects the flake itself, not the system configuration!

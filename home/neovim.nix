@@ -1,13 +1,9 @@
 { config
 , pkgs
-, pkgs-staging
 , ...
 }: {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly.override {
-      libvterm-neovim = pkgs-staging.libvterm-neovim;
-    };
     defaultEditor = true;
     extraPackages = with pkgs; [
       nodejs_16
