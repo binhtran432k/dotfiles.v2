@@ -5,6 +5,9 @@
   home.sessionVariables = {
     PAGER = "bat";
   };
+
+  home.file.".config/bat/themes/custom.tmTheme".text = user.colorscheme.sublime;
+
   programs.bat = {
     enable = true;
     config = {
