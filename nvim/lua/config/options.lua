@@ -14,3 +14,5 @@ vim.g.root_spec = { "lsp", {
 }, "cwd" }
 
 vim.opt.clipboard = ""
+
+vim.opt.formatexpr = "1"
