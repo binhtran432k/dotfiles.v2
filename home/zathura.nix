@@ -1,7 +1,4 @@
-{ lib
-, user
-, ...
-}:
+{ user, ... }:
 with user.colorscheme; {
   programs.zathura = {
     enable = true;
@@ -48,6 +45,7 @@ with user.colorscheme; {
 
       adjust-open = "width";
       recolor = true;
+      sandbox = "none";
     };
   };
 }
