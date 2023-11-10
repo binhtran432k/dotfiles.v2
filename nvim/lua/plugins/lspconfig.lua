@@ -7,9 +7,6 @@ return {
         float = { border = "rounded" },
       },
       servers = {
-        emmet_language_server = { mason = true },
-        html = {},
-        cssls = {},
       },
     },
   },

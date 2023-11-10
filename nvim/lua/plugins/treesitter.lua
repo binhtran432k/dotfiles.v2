@@ -17,6 +17,7 @@ return {
     keys = {
       { "<leader>cc", "<cmd>Neogen<cr>", desc = "Neogen document" },
     },
+    cmd = "Neogen",
     opts = { snippet_engine = "luasnip" },
   },
 
