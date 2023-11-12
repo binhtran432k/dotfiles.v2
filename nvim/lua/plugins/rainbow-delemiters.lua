@@ -9,7 +9,7 @@ local function get_strategy()
       return nil
     end
   end
-  return require("rainbow-delimiters.strategy.hack")
+  return require("rainbow-delimiters").strategy.global
 end
 
 return {
@@ -22,6 +22,7 @@ return {
       },
       query = {
         [""] = "rainbow-delimiters",
+        ["javascript"] = "rainbow-delimiters-react",
       },
       highlight = {
         "RainbowDelimiterRed",
