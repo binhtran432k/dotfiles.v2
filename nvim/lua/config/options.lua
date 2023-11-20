@@ -4,14 +4,16 @@
 
 vim.g.autoformat = false
 
-vim.g.root_spec = { "lsp", {
-  "lua",
-  ".git",
+local root_pattern = {
   "Makefile",
   "makefile",
   "package.json",
   "Cargo.toml",
-}, "cwd" }
+  "lua/",
+  ".git",
+}
+
+vim.g.root_spec = { root_pattern, "lsp", "cwd" }
 
 vim.opt.clipboard = ""
 
