@@ -1,5 +1,7 @@
 { user, ... }: {
   imports = [
+    ./gtk
+
     ./home-server.nix
 
     ./development.nix
@@ -11,11 +13,11 @@
     ./dunst.nix
     ./fcitx5.nix
     ./flameshot.nix
-    ./gtk.nix
-    ./safeeyes.nix
+    ./libreoffice.nix
     ./neovim.nix
-    ./wezterm.nix
+    ./safeeyes.nix
     ./vimiv.nix
+    ./wezterm.nix
     ./xdg.nix
     ./zathura.nix
   ];

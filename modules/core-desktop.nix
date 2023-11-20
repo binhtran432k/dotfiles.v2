@@ -9,6 +9,7 @@
     ./cron.nix
     ./redshift.nix
     ./sdcv.nix
+    ./cloudflare.nix
   ];
 
   # to install chrome, you need to enable unfree packages
@@ -170,6 +171,7 @@
 
       # code fonts
       cascadia-code
+      monaspace
 
       # nerdfonts
       nerdfonts
