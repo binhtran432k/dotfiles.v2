@@ -4,7 +4,7 @@ with user.colorscheme; {
     enable = true;
     settings = {
       global = {
-        font = "Maple Mono";
+        font = "Monaspace Neon";
         separator_color = border;
       };
 
