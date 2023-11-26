@@ -101,11 +101,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # for macos
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-    nix-darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
+    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+    # nix-darwin = {
+    #   url = "github:lnl7/nix-darwin";
+    #   inputs.nixpkgs.follows = "nixpkgs-darwin";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -115,9 +115,9 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # modern window compositor
-    hyprland.url = "github:hyprwm/Hyprland/v0.28.0";
+    # hyprland.url = "github:hyprwm/Hyprland/v0.28.0";
     # community wayland nixpkgs
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    # nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
   };
 
   # the nixConfig here only affects the flake itself, not the system configuration!
