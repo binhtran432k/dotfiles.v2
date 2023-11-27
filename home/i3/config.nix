@@ -25,6 +25,10 @@ let
       increase = "mycontrol brightness get";
       decrease = "mycontrol brightness get";
     };
+    screenshot = {
+      full = "flameshot full --clipboard";
+      rect = "flameshot gui";
+    };
   };
   mycontrol = pkgs.writeShellScriptBin "mycontrol" (builtins.readFile ./mycontrol);
 in
@@ -188,6 +192,9 @@ in
 
         "XF86MonBrightnessUp" = "exec --no-startup-id ${commands.brightness.increase}";
         "XF86MonBrightnessDown" = "exec --no-startup-id ${commands.brightness.decrease}";
+
+        "Print" = "exec --no-startup-id ${commands.screenshot.full}";
+        "${modifier}+Print" = "exec --no-startup-id ${commands.screenshot.rect}";
       };
     };
   };
