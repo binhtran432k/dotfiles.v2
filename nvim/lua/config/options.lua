@@ -9,7 +9,6 @@ local root_pattern = {
   "makefile",
   "package.json",
   "Cargo.toml",
-  "lua/",
   ".git",
 }
 
