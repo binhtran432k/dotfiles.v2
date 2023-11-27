@@ -23,9 +23,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = lib.mkDefault false;
-  nixpkgs.config.permittedInsecurePackages = [
-    "nodejs-16.20.2"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ ];
 
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
@@ -34,7 +32,7 @@
   i18n =
     let
       us = "en_US.UTF-8";
-      vi = "vi_VN.UTF-8";
+      # vi = "vi_VN.UTF-8";
     in
     {
       defaultLocale = us;
@@ -129,4 +127,7 @@
       }
     ];
   };
+
+  # XDG
+  xdg.portal.config.common.default = "*";
 }
