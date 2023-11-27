@@ -16,6 +16,7 @@
     ./flameshot.nix
     ./libreoffice.nix
     ./neovim.nix
+    ./qt.nix
     ./safeeyes.nix
     ./vimiv.nix
     ./xdg.nix
