@@ -13,6 +13,8 @@
 
     libsForQt5.kruler
 
+    libsForQt5.ark
+
     playerctl
   ];
 
