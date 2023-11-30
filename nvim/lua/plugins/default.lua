@@ -1,8 +1,6 @@
 return {
-  {
-    "folke/tokyonight.nvim",
-    enabled = false,
-  },
+  { "folke/tokyonight.nvim" },
+  { "catppuccin/nvim", name = "catppuccin", enabled = false },
   { import = "plugins.lang" },
   { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 }
