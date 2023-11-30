@@ -14,7 +14,7 @@ end
 
 return {
   "HiPhish/rainbow-delimiters.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "LazyFile" },
   config = function()
     vim.g.rainbow_delimiters = {
       strategy = {
