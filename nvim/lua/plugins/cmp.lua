@@ -79,4 +79,26 @@ return {
       end
     end,
   },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function(_, opts)
+      if opts then
+        require("luasnip").config.setup(opts)
+      end
+
+      -- friendly-snippets - enable standardized comments snippets
+      require("luasnip").filetype_extend("javascript", { "javascriptreact" })
+
+      require("luasnip.loaders.from_vscode").lazy_load()
+
+      require("luasnip.loaders.from_lua").lazy_load({
+        paths = {
+          -- Load local snippets if present.
+          vim.fn.getcwd() .. "/.luasnippets",
+          -- Global snippets.
+          vim.fn.stdpath("config") .. "/luasnippets",
+        },
+      })
+    end,
+  },
 }
