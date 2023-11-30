@@ -18,7 +18,11 @@ return {
       { "<leader>cc", "<cmd>Neogen<cr>", desc = "Neogen document" },
     },
     cmd = "Neogen",
-    opts = { snippet_engine = "luasnip" },
+    opts = {
+      -- input_after_comment = false,
+      enable_placeholders = false,
+      snippet_engine = nil, -- "luasnip"
+    },
   },
 
   {
