@@ -26,9 +26,9 @@ return {
   },
 
   {
-    "nvim-treesitter/nvim-treesitter",
-    ---@type TSConfig
-    ---@diagnostic disable-next-line: missing-fields
-    opts = {},
+    "windwp/nvim-ts-autotag",
+    opts = {
+      enable_close_on_slash = false,
+    },
   },
 }
