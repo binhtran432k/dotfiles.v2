@@ -11,6 +11,5 @@
         deviation = 5.0;
       };
     };
-    vSync = true;
   };
 }
