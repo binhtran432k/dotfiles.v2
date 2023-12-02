@@ -65,6 +65,14 @@ in
             command = "floating enable";
           }
           {
+            criteria = { class = "kruler"; };
+            command = "floating enable, sticky enable, move position center";
+          }
+          {
+            criteria = { class = "kcolorchooser"; };
+            command = "floating enable, sticky enable";
+          }
+          {
             criteria = { class = "floatsdcv"; };
             command = "floating enable, resize set 800 600, move position center";
           }
