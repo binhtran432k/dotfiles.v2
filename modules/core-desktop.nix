@@ -9,6 +9,7 @@
     ./cron.nix
     ./redshift.nix
     ./sdcv.nix
+    ./thunar.nix
     ./cloudflare.nix
   ];
 
