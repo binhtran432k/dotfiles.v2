@@ -19,6 +19,7 @@
     gcc
 
     # python
+    nodePackages.pyright
     ruff-lsp
     isort
     black
