@@ -1,3 +1,8 @@
+local cmp_keys = {
+  next = "<tab>",
+  prev = "<s-tab>",
+}
+
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
@@ -5,15 +10,14 @@ return {
   },
   opts = function(_, opts)
     local actions = require("telescope.actions")
-
     opts.defaults.mappings = vim.tbl_extend("force", opts.defaults.mappings, {
       n = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        [cmp_keys.next] = actions.move_selection_next,
+        [cmp_keys.prev] = actions.move_selection_previous,
       },
       i = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        [cmp_keys.next] = actions.move_selection_next,
+        [cmp_keys.prev] = actions.move_selection_previous,
       },
     })
   end,
