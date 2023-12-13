@@ -9,6 +9,15 @@ return {
         eslint = {},
         html = {},
         cssls = {},
+        --- @type lspconfig.options.tsserver
+        tsserver = {
+          ---@diagnostic disable-next-line: missing-fields
+          settings = {
+            completions = {
+              completeFunctionCalls = false,
+            },
+          },
+        },
       },
     },
   },
