@@ -21,9 +21,11 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = lib.mkDefault false;
-  nixpkgs.config.permittedInsecurePackages = [ ];
+  # Allow unfree/insecure packages
+  nixpkgs.config = {
+    allowUnfree = lib.mkDefault false;
+    permittedInsecurePackages = [ ];
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
