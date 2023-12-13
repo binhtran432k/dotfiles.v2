@@ -5,6 +5,7 @@
     inputs @ { nixpkgs
     , home-manager
     , nixos-hardware
+    , neovim-nightly-overlay
     , ...
     }:
     let
@@ -70,7 +71,7 @@
       nixosConfigurations =
         let
           base-args = {
-            inherit home-manager;
+            inherit home-manager neovim-nightly-overlay;
             nixpkgs = nixpkgs;
             system = systems.linux;
             specialArgs = x64-specialArgs;
@@ -111,6 +112,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
