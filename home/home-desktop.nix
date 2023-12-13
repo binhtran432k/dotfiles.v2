@@ -14,6 +14,7 @@
     ./dunst.nix
     ./fcitx5.nix
     ./flameshot.nix
+    ./goldendict.nix
     ./libreoffice.nix
     ./neovim.nix
     ./qt.nix
