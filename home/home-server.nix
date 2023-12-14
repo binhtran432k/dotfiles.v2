@@ -3,6 +3,7 @@
     ./shell-server.nix
 
     ./bat.nix
+    ./eza.nix
     ./lf.nix
     ./yazi.nix
     ./lazygit.nix
