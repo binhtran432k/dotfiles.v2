@@ -5,7 +5,7 @@ return {
     ---@type PluginLspOpts
     opts = {
       servers = {
-        emmet_language_server = { mason = true },
+        emmet_language_server = {},
         eslint = {},
         html = {},
         cssls = {},

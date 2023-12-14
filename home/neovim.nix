@@ -52,9 +52,11 @@
     nodePackages.yaml-language-server
     marksman # language server for markdown
     nodePackages.markdownlint-cli
+    emmet-language-server
 
     #-- misc
     tree-sitter # use to compile tree-sitter parser
     nodePackages.prettier # common code formatter
+    nodePackages.live-server
   ];
 }
